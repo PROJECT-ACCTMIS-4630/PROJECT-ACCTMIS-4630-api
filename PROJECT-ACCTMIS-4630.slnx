@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="PROJECT-ACCTMIS-4630.Api/PROJECT-ACCTMIS-4630.Api.csproj" />
+  <Project Path="PROJECT-ACCTMIS-4630.Data/PROJECT-ACCTMIS-4630.Data.csproj" />
   <Project Path="PROJECT-ACCTMIS-4630.Domain/PROJECT-ACCTMIS-4630.Domain.csproj" />
 </Solution>
