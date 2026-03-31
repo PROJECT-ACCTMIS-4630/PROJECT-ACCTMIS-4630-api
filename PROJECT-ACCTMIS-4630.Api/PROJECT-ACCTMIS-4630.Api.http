@@ -1,0 +1,6 @@
+@PROJECT_ACCTMIS_4630.Api_HostAddress = http://localhost:5144
+
+GET {{PROJECT_ACCTMIS_4630.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
