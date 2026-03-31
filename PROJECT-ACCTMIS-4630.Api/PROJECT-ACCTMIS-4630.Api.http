@@ -1,6 +1,40 @@
 @PROJECT_ACCTMIS_4630.Api_HostAddress = http://localhost:5144
 
-GET {{PROJECT_ACCTMIS_4630.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+### POST a new Item to the Catalog collection
+POST {{PROJECT_ACCTMIS_4630.Api_HostAddress}}/catalog
+Content-Type: application/json
+
+{
+    "name": "Shoes",
+    "description": "Ohio State shoes",
+    "brand": "Nike",
+    "price": 129.99
+}
+
+### POST a new rating to an Item
+POST {{PROJECT_ACCTMIS_4630.Api_HostAddress}}/catalog/1/ratings
+Content-Type: application/json
+
+{
+    "stars": 5,
+    "userName": "testuser",
+    "review": "Great shirt!"
+}
+
+### PUT an update to an Item
+PUT {{PROJECT_ACCTMIS_4630.Api_HostAddress}}/catalog/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Shirt",
+    "description": "Updated description",
+    "brand": "Nike",
+    "price": 39.99
+}
+
+### DELETE an Item
+DELETE {{PROJECT_ACCTMIS_4630.Api_HostAddress}}/catalog/1
+
 
 ###
