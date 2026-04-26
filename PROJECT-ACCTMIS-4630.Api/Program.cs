@@ -7,7 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<StoreContext>(options =>
     options.UseSqlite("Data Source=../Registrar.sqlite")
 );
-builder.Services.AddCors(options =>
+builder.Services.AddCors(options =>      // ADD THIS
 {
     options.AddDefaultPolicy(builder =>
     {
@@ -26,8 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseHttpsRedirection();
-app.UseCors();
-app.MapControllers();
 
+app.UseHttpsRedirection();
+app.UseCors();              // ADD THIS
+app.MapControllers();
 app.Run();
