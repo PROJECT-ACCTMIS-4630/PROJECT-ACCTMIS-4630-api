@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PROJECT_ACCTMIS_4630.Data;
 using PROJECT_ACCTMIS_4630.Domain.Catalog;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PROJECT_ACCTMIS_4630.Api.Controllers
 {
@@ -71,6 +72,7 @@ namespace PROJECT_ACCTMIS_4630.Api.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize("delete:catalog")]
         public IActionResult DeleteItem(int id)
         {
             var item = _db.Items.Find(id);

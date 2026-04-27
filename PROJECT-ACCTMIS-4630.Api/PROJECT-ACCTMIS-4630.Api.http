@@ -1,7 +1,7 @@
-@PROJECT_ACCTMIS_4630.Api_HostAddress = http://localhost:5144
+@PROJECT_ACCTMIS_4630_Api_HostAddress = http://localhost:5144
 
 ### POST a new Item to the Catalog collection
-POST {{PROJECT_ACCTMIS_4630.Api_HostAddress}}/catalog
+POST {{PROJECT_ACCTMIS_4630_Api_HostAddress}}/catalog
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### POST a new rating to an Item
-POST {{PROJECT_ACCTMIS_4630.Api_HostAddress}}/catalog/1/ratings
+POST {{PROJECT_ACCTMIS_4630_Api_HostAddress}}/catalog/1/ratings
 Content-Type: application/json
 
 {
@@ -22,7 +22,7 @@ Content-Type: application/json
 }
 
 ### PUT an update to an Item
-PUT {{PROJECT_ACCTMIS_4630.Api_HostAddress}}/catalog/1
+PUT {{PROJECT_ACCTMIS_4630_Api_HostAddress}}/catalog/1
 Content-Type: application/json
 
 {
@@ -34,7 +34,21 @@ Content-Type: application/json
 }
 
 ### DELETE an Item
-DELETE {{PROJECT_ACCTMIS_4630.Api_HostAddress}}/catalog/1
+DELETE http://localhost:5144/catalog/3
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImgtbzFMWUxlOHZ6WDhFTVd0cllaNSJ9.eyJpc3MiOiJodHRwczovL2Rldi1vOGFhMGNuYWhpYzE1NnVmLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiI5Q0R0djRBVkxlU0xSb2Rvc0xveE1UUExiRXNHVmxYdEBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9BQ0NUTUlTLTQ2MzAiLCJpYXQiOjE3NzcyNTIzNTUsImV4cCI6MTc3NzMzODc1NSwic2NvcGUiOiJkZWxldGU6Y2F0YWxvZyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyIsImF6cCI6IjlDRHR2NEFWTGVTTFJvZG9zTG94TVRQTGJFc0dWbFh0In0.CMng0qVKB1RtHZzGUdIuHdhDxINleF8MoD2pLDRQbZFDyd-Tjm43A1scqbYLvsaRcGc5OybaOSIvq_73Hf2dGp4FQUTG2f30e6PHcPDbm6XcxuFVu43DMvr3lvdlfWens_zWvtMG7xcNfuMZDVycfAGNPnDUoXvjzMirwl7HxQ1A9zatCBZ-vqOoI3wt8Ca25ZGp4I5l8w8U21YSrTq3e02_iWAs57_PRF-lwX0Xz864vtG_w7mXZ35QfrNdn-DEP8rG9cDR7FnT0qRlNtS0yFvN44Ys65UOZF2YojJiCaVkM0kvF9pmv4FPwSg7cxn7t91YS3IFGqHiS9z9X6W9Ig
 
+###DELETE an Item to the Catalog collection
+  curl --request DELETE \
+  --url http://localhost:5144/catalog/3 \
+  --header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImgtbzFMWUxlOHZ6WDhFTVd0cllaNSJ9.eyJpc3MiOiJodHRwczovL2Rldi1vOGFhMGNuYWhpYzE1NnVmLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiI5Q0R0djRBVkxlU0xSb2Rvc0xveE1UUExiRXNHVmxYdEBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9BQ0NUTUlTLTQ2MzAiLCJpYXQiOjE3NzcyNTIzNTUsImV4cCI6MTc3NzMzODc1NSwic2NvcGUiOiJkZWxldGU6Y2F0YWxvZyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyIsImF6cCI6IjlDRHR2NEFWTGVTTFJvZG9zTG94TVRQTGJFc0dWbFh0In0.CMng0qVKB1RtHZzGUdIuHdhDxINleF8MoD2pLDRQbZFDyd-Tjm43A1scqbYLvsaRcGc5OybaOSIvq_73Hf2dGp4FQUTG2f30e6PHcPDbm6XcxuFVu43DMvr3lvdlfWens_zWvtMG7xcNfuMZDVycfAGNPnDUoXvjzMirwl7HxQ1A9zatCBZ-vqOoI3wt8Ca25ZGp4I5l8w8U21YSrTq3e02_iWAs57_PRF-lwX0Xz864vtG_w7mXZ35QfrNdn-DEP8rG9cDR7FnT0qRlNtS0yFvN44Ys65UOZF2YojJiCaVkM0kvF9pmv4FPwSg7cxn7t91YS3IFGqHiS9z9X6W9Ig'
 
-###
+### GET token from Auth0
+  curl --request POST \
+  --url https://dev-o8aa0cnahic156uf.us.auth0.com/oauth/token \
+  --header 'content-type: application/json' \
+  --data '{
+    "client_id":"9CDtv4AVLeSLRodosLoxMTPLbEsGVlXt",
+    "client_secret":"9Mr5yVnVozvpFo2YObQpbbdZCfSKCeUlOylc9IJIxNBWOI_pPWW4FvYAqmNXZVER",
+    "audience":"https://ACCTMIS-4630",
+    "grant_type":"client_credentials"
+  }'
