@@ -7,6 +7,15 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<StoreContext>(options =>
     options.UseSqlite("Data Source=../Registrar.sqlite")
 );
+builder.Services.AddCors(options =>      // ADD THIS
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("http://localhost:3000")
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -18,6 +27,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseHttpsRedirection();
+app.UseCors();              // ADD THIS
 app.MapControllers();
-
 app.Run();
